@@ -1,4 +1,4 @@
-﻿//Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
