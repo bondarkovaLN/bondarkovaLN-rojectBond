@@ -1,32 +1,35 @@
-﻿// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-
-int[] GetArrey(int numLengh) // заполняем массив
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+ 
+namespace Array_from_set_user_parameter5
 {
-    Random rnd = new Random();
-    int[] newArray = new int [numLengh];
-    for (int i = 0; i < numLengh; i++)
-    {
-        newArray[i] = rnd.Next(0, 8);
-    }
-    return newArray;
+/* Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран. */
+  class Program
+   {
+    static void Main(string[] args)
+     {
+     // Задать с клавиатуры число элементов массива
+        int n;
+        Console.WriteLine("Введите число элементов массива");
+        n = Convert.ToInt16(Console.ReadLine());
+     // Объявим одномерный массив Data с n-элементами 
+        double [] Data = new double[n];
+        int i = 0;
+       while (i < n)
+        {
+           Console.WriteLine("Введите элемент массива");
+        /* Вводим элементы массива с клавиатуры 
+         * и заполняем ими массив */
+           Data[i] = double.Parse(Console.ReadLine());
+           Console.WriteLine();
+           i++;
+        }
+   // Вывод содержимого массива
+     for (i = 0; i < n; i = i + 1)
+     Console.WriteLine("Элемент[" + i + "]: " + Data[i]);
+     Console.ReadKey();
+   }
+ }
 }
-
-void PrintArray(int[] arr, int numLengh) // выводим массив на экран
-{
-    Console.Write("Выводим полученный массив: [");
-    for (int i = 0; i < numLengh; i++)
-    {
-        Console.Write(arr[i]);
-        if (i < numLengh - 1) Console.Write(", "); // после каждого (кроме последнего) члена массива выводим запятую
-    }
-    Console.WriteLine("]"); //закрываем квадратную скобку после последнего члена массива
-}
-
-Console.Write("Введите размер массива из 8 цифр от 0 до 20 через запятую: "); // ограничил что бы всё умещалось в одну строку
-int lengh = Convert.ToInt32(Console.ReadLine());
-if (lengh > 0 && lengh < 21) // размер массива из нужного диапазона?
-{
-    int [] arr = GetArrey(lengh);
-    PrintArray(arr, lengh);
-}
-else Console.WriteLine("Не верный размер массива");
